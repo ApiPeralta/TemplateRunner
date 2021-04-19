@@ -19,5 +19,11 @@ public class Parallax : MonoBehaviour
         {
             transform.localPosition = new Vector3(20, transform.localPosition.y, transform.localPosition.z);
         }
+        if (Controller_Hud.gameOver == true) //frena el fondo si el personaje muere.
+        {
+            parallaxEffect = 0;
+            length = 0;
+            startPos = 0;
+        }
     }
 }

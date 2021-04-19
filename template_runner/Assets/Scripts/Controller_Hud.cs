@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Controller_Hud : MonoBehaviour
@@ -20,7 +21,7 @@ public class Controller_Hud : MonoBehaviour
     {
         if (gameOver)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0;          
             gameOverText.text = "Game Over \n Total Distance: " + distance.ToString();
             gameOverText.gameObject.SetActive(true);
         }

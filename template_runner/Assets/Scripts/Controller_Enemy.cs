@@ -14,6 +14,7 @@ public class Controller_Enemy : MonoBehaviour
     {
         rb.AddForce(new Vector3(-enemyVelocity, 0, 0), ForceMode.Force);
         OutOfBounds();
+
     }
 
     public void OutOfBounds()

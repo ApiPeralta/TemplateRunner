@@ -17,6 +17,7 @@ public class Controller_Instantiator : MonoBehaviour
     {
         SpawnEnemies();
         ChangeVelocity();
+
     }
 
     private void ChangeVelocity()

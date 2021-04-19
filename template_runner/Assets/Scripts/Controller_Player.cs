@@ -70,8 +70,9 @@ public class Controller_Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             Controller_Hud.gameOver = true;
+            collision.gameObject.SetActive(false); //destruye el enemigo
         }
 
         if (collision.gameObject.CompareTag("Floor"))
