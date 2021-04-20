@@ -17,7 +17,7 @@ public class Controller_Enemy : MonoBehaviour
 
     }
 
-    public void OutOfBounds()
+    public void OutOfBounds() //si se va del camino se destruye
     {
         if (this.transform.position.x <= -15)
         {

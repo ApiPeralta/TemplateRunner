@@ -8,7 +8,6 @@ public class Controller_Hud : MonoBehaviour
     public Text distanceText;
     public Text gameOverText;
     private float distance = 0;
-
     void Start()
     {
         gameOver = false;
@@ -21,14 +20,14 @@ public class Controller_Hud : MonoBehaviour
     {
         if (gameOver)
         {
-            Time.timeScale = 0;          
-            gameOverText.text = "Game Over \n Total Distance: " + distance.ToString();
-            gameOverText.gameObject.SetActive(true);
+            Time.timeScale = 0; //frena las cosas
+            gameOverText.text = "Game Over \n Total Distance: " + Math.Round(distance).ToString();//redondeo el numero
+            gameOverText.gameObject.SetActive(true); //aparecer el texto
         }
-        else
+        else //muestra el texto de arriba a la izquierda
         {
             distance += Time.deltaTime;
-            distanceText.text = distance.ToString();
+            distanceText.text = Math.Round(distance).ToString();
         }
     }
 }

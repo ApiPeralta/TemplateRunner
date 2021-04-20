@@ -27,9 +27,9 @@ public class Controller_Player : MonoBehaviour
 
     private void Jump()
     {
-        if (floored)
+        if (floored) //para que no pueda volar
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W)) //tocando la W, le aplica una fuerza en el eje Y
             {
                 rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             }
@@ -38,7 +38,7 @@ public class Controller_Player : MonoBehaviour
 
     private void Duck()
     {
-        if (floored)
+        if (floored) //achica la escala si esta en el piso
         {
             if (Input.GetKey(KeyCode.S))
             {
@@ -48,7 +48,7 @@ public class Controller_Player : MonoBehaviour
                     i++;
                 }
             }
-            else
+            else //hace que baje
             {
                 if (rb.transform.localScale.y != initialSize)
                 {
