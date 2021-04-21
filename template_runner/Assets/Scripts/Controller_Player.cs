@@ -2,11 +2,13 @@
 
 public class Controller_Player : MonoBehaviour
 {
+    public GameObject Player;
     private Rigidbody rb;
     public float jumpForce = 10;
     private float initialSize;
     private int i = 0;
     private bool floored;
+    private float tiempo = 2;
 
     private void Start()
     {
@@ -70,7 +72,6 @@ public class Controller_Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
             Controller_Hud.gameOver = true;
             collision.gameObject.SetActive(false); //destruye el enemigo
         }
@@ -82,11 +83,13 @@ public class Controller_Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Fuel"))
         {
-            Slider.mainSlider.value = mainSlider.value - 3;
+            ScrollBar.SliderBarD -= 5f;
+            collision.gameObject.SetActive(false);
         }
         if (collision.gameObject.CompareTag("Drop"))
         {
-
+            Controller_Hud.distance += 10;
+            collision.gameObject.SetActive(false);
         }
     }
 

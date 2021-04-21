@@ -7,11 +7,16 @@ public class Controller_Instantiator : MonoBehaviour
     public GameObject drop;
     public GameObject fuel;
     public GameObject instantiatePos;
+    public GameObject instantiatePos2;
     public float respawningTimer;
+    public float respawningTimer1;
+    public float respawningTimer2;
     private float time = 0;
 
     void Start()
     {
+        respawningTimer2 = 3;
+        respawningTimer1 = 5;
         Controller_Enemy.enemyVelocity = 2;
     }
 
@@ -36,27 +41,27 @@ public class Controller_Instantiator : MonoBehaviour
         if (respawningTimer <= 0)
         {
             Instantiate(enemies[UnityEngine.Random.Range(0, enemies.Count)], instantiatePos.transform);
-            respawningTimer = UnityEngine.Random.Range(2, 6);
+            respawningTimer = UnityEngine.Random.Range(3, 6);
         }
     }
     private void SpawnDrop()
     {
-        respawningTimer -= Time.deltaTime;
+        respawningTimer1 -= Time.deltaTime;
 
-        if (respawningTimer <= 0)
+        if (respawningTimer1 <= 0)
         {
-            Instantiate(drop, instantiatePos.transform);
-            respawningTimer = UnityEngine.Random.Range(2, 10);
+            Instantiate(drop, instantiatePos2.transform);
+            respawningTimer1 = UnityEngine.Random.Range(8, 10);
         }
     }
     private void SpawnFuel()
     {
-        respawningTimer -= Time.deltaTime;
+        respawningTimer2 -= Time.deltaTime;
 
-        if (respawningTimer <= 0)
+        if (respawningTimer2 <= 0)
         {
-            Instantiate(fuel, instantiatePos.transform);
-            respawningTimer = UnityEngine.Random.Range(2, 3);
+            Instantiate(fuel, instantiatePos2.transform);
+            respawningTimer2 = UnityEngine.Random.Range(3, 5);
         }
     }
 }
