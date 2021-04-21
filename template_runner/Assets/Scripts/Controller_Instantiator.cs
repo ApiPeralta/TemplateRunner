@@ -4,9 +4,9 @@ using UnityEngine;
 public class Controller_Instantiator : MonoBehaviour
 {
     public List<GameObject> enemies;
-    public List<GameObject> drop;
+    public GameObject drop;
+    public GameObject fuel;
     public GameObject instantiatePos;
-    public GameObject instantiatePos2;
     public float respawningTimer;
     private float time = 0;
 
@@ -20,6 +20,7 @@ public class Controller_Instantiator : MonoBehaviour
         SpawnEnemies();
         ChangeVelocity();
         SpawnDrop();
+        SpawnFuel();
     }
 
     private void ChangeVelocity()
@@ -44,8 +45,18 @@ public class Controller_Instantiator : MonoBehaviour
 
         if (respawningTimer <= 0)
         {
-            Instantiate(drop[UnityEngine.Random.Range(0,drop.Count)], instantiatePos2.transform);
-            respawningTimer = UnityEngine.Random.Range(2, 6);
+            Instantiate(drop, instantiatePos.transform);
+            respawningTimer = UnityEngine.Random.Range(2, 10);
+        }
+    }
+    private void SpawnFuel()
+    {
+        respawningTimer -= Time.deltaTime;
+
+        if (respawningTimer <= 0)
+        {
+            Instantiate(fuel, instantiatePos.transform);
+            respawningTimer = UnityEngine.Random.Range(2, 3);
         }
     }
 }

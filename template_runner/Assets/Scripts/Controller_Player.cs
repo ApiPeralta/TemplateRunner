@@ -79,6 +79,15 @@ public class Controller_Player : MonoBehaviour
         {
             floored = true;
         }
+
+        if (collision.gameObject.CompareTag("Fuel"))
+        {
+            Slider.mainSlider.value = mainSlider.value - 3;
+        }
+        if (collision.gameObject.CompareTag("Drop"))
+        {
+
+        }
     }
 
     private void OnCollisionExit(Collision collision)
